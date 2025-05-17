@@ -16,9 +16,11 @@ points:
         pinky:
           
         ring:
+         
           key:
             stagger: 5
             splay: -4
+            spread: 1.05U
             
             
         middle:
