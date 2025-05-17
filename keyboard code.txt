@@ -3,8 +3,8 @@ units:
   kx: U
   ky: U
   
-  px: kx + 2
-  py: ky + 2
+  px: kx + 4
+  py: ky + 4
 
 points:
   zones:
@@ -15,11 +15,12 @@ points:
           key.splay: 8
         pinky:
           
-         
         ring:
           key:
             stagger: 5
             splay: -4
+            
+            
         middle:
           rows.mod.skip: true
           key.stagger: 5
@@ -28,6 +29,7 @@ points:
         index:
           rows.mod.skip: true
           key.stagger: -4
+          
 
           key.splay: -4
         indexfar:
@@ -91,8 +93,12 @@ outlines:
         - ref: main_pinky_mod
           shift: [-0.5px,-0.5py] 
         - ref: main_pinkyfar_low
-          shift: [-0.5px,0.5py] 
+          shift: [-0.5px,-0.5py] 
       fillet: 2
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
 
         
              
