@@ -1,0 +1,62 @@
+units:
+  
+  kx: cx
+  ky: cy
+  
+  px: kx + 2
+  py: ky + 2
+
+points:
+  zones:
+    main:
+      columns:
+        pinkyfar:
+          rows.mod.skip: true
+          key.splay: 8
+        pinky:
+          
+         
+        ring:
+          key:
+            stagger: 5
+            splay: -4
+        middle:
+          rows.mod.skip: true
+          key.stagger: 5
+          key.splay: -4
+          
+        index:
+          rows.mod.skip: true
+          key.stagger: -4
+
+          key.splay: -4
+        indexfar:
+          rows.mod.skip: true
+          key: 
+            stagger: -4
+
+            splay: -8
+            
+      rows:
+        mod:
+        low:
+        home:
+        top:
+        nums:
+    thumb:
+      anchor: 
+        ref: main_indexfar_low
+        shift: [-2,-30]
+      columns:
+        layer2:
+        layer1:
+        space:
+          key:
+            width: 1.5U
+            shift: [0.40U,-4]
+            splay: -14
+      rows:
+outlines:
+  
+        
+        
