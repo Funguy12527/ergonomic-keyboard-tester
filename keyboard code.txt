@@ -1,7 +1,7 @@
 units:
   
-  kx: cx
-  ky: cy
+  kx: U
+  ky: U
   
   px: kx + 2
   py: ky + 2
@@ -56,7 +56,43 @@ points:
             shift: [0.40U,-4]
             splay: -14
       rows:
+        layerkey:
+        
 outlines:
-  
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5]        
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: main_pinkyfar_nums
+          shift: [-0.5px,0.5py] 
+        - ref: main_ring_nums
+          shift: [-0.5px,0.5py] 
+        - ref: main_middle_nums
+          shift: [-0.5px,0.5py]
+        - ref: main_middle_nums
+          shift: [0.5px,0.5py] 
+        - ref: main_index_nums
+          shift: [0.5px,0.5py]
+        - ref: main_indexfar_nums
+          shift: [0.5px,0.5py] 
+        - ref: thumb_space_layerkey
+          shift: [0.75px, 0.5py]
+        - ref: thumb_space_layerkey
+          shift: [0.75px, -0.5py]
+        - ref: main_pinky_mod
+          shift: [-0.5px,-0.5py] 
+        - ref: main_pinkyfar_low
+          shift: [-0.5px,0.5py] 
+      fillet: 2
+
         
-        
+             
