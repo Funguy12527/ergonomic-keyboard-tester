@@ -1,0 +1,159 @@
+units:
+  
+  kx: U
+  ky: U
+  
+  px: kx + 4
+  py: ky + 4
+
+points:
+  zones:
+    main:
+      columns:
+        pinkyfar:
+          rows.mod.skip: true
+          key:
+            splay: 8
+            column_net: P024
+        pinky:
+          key:
+            column_net: P100
+        ring:
+          key:
+            stagger: 5
+            splay: -4
+            spread: 1.05U
+            column_net: P011
+        middle:
+          rows.mod.skip: true
+          key:
+            stagger: 5
+            splay: -4
+            column_net: P104
+        index:
+          rows.mod.skip: true
+          key:
+            stagger: -4
+            splay: -4
+            column_net: P106
+        indexfar:
+          rows.mod.skip: true
+          key:
+            stagger: -4
+            splay: -8
+            column_net: P009
+            
+      rows:
+        mod:
+          key:
+            row_net: P022
+        low:
+          key: 
+            row_net: P020
+        home:
+          key: 
+            row_net: P017
+        top:
+          key: 
+            row_net: P008
+        nums:
+          key: 
+            row_net: P006
+    thumb:
+      anchor: 
+        ref: main_indexfar_low
+        shift: [-2,-30]
+      columns:
+        layer2:
+          key:
+            column_net: P104
+        layer1:
+          key:
+            column_net: P106
+        space:
+          key:
+            width: 1.5U
+            shift: [0.40U,-4]
+            splay: -14
+            column_net: P009
+      rows:
+        layerkey:
+          key:
+            row_net: P022
+        
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5]        
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: main_pinkyfar_nums
+          shift: [-0.5px,0.5py] 
+        - ref: main_ring_nums
+          shift: [-0.5px,0.5py] 
+        - ref: main_middle_nums
+          shift: [-0.5px,0.5py]
+        - ref: main_middle_nums
+          shift: [0.5px,0.5py] 
+        - ref: main_index_nums
+          shift: [px,0.5py]
+        - ref: main_indexfar_nums
+          shift: [3px,0.5py] 
+        - ref: thumb_space_layerkey
+          shift: [0.75px, 0.5py]
+        - ref: thumb_space_layerkey
+          shift: [0.75px, -0.5py]
+        - ref: main_pinky_mod
+          shift: [-0.5px,-0.5py] 
+        - ref: main_pinkyfar_low
+          shift: [-0.5px,-0.5py] 
+      fillet: 2
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+pcbs: 
+  experiment:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      MX: 
+        what: mx
+        where: true
+        params:
+          hotswap: false
+          keycaps: false
+          from: "{{column_net}}"
+          to:  "{{colrow}}"
+      nicenano: 
+        what: nice_nano
+        params: 
+          orientation: down
+        where: 
+          ref: main_indexfar_nums
+          shift: [1.25U, -1.5U]
+          rotate: -90
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+
+
+
+
+
+
+
